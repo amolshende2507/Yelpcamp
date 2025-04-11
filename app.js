@@ -4,6 +4,7 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const Campground = require('./models/campground');
+const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override')
 
 
@@ -20,7 +21,7 @@ db.once('open', () => {
     console.log("We are connected to MongoDB!");
 });
 
-
+app.engine('ejs', ejsMate)
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
