@@ -18,10 +18,7 @@ const opts = { toJSON: { virtuals: true } };
 
 const CampgroundSchema = new Schema({
     title: String,
-    images: {
-        type: [ImageSchema],
-        default: [] // ✅ This guarantees it's never undefined
-    },
+    images: [ImageSchema],
     geometry: {
         type: {
             type: String,
